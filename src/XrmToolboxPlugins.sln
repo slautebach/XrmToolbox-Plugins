@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Missing Dependencies", "Mis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrateUserSettings", "MigrateUserViewsAndDashboards\MigrateUserSettings.csproj", "{2F8E5FC7-D528-4FA8-B69F-F09810FF1420}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Markdown", "Markdown", "{B96C6C58-C15A-4CE5-9464-16D07715ED20}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
