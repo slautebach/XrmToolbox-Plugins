@@ -23,7 +23,7 @@ namespace slautebach.MissingDependencies
             InitializeComponent();
         }
 
-        private void MyPluginControl_Load(object sender, EventArgs e)
+        private void On_Load(object sender, EventArgs e)
         {
             ShowInfoNotification("This is a notification that can lead to XrmToolBox repository", new Uri("https://github.com/MscrmTools/XrmToolBox"));
 
@@ -84,7 +84,7 @@ namespace slautebach.MissingDependencies
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MyPluginControl_OnCloseTool(object sender, EventArgs e)
+        private void On_CloseTool(object sender, EventArgs e)
         {
             // Before leaving, save the settings
             SettingsManager.Instance.Save(GetType(), mySettings);
@@ -102,6 +102,11 @@ namespace slautebach.MissingDependencies
                 mySettings.LastUsedOrganizationWebappUrl = detail.WebApplicationUrl;
                 LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
             }
+        }
+
+        private void On_Resize(object sender, EventArgs e)
+        {
+            // TODO resize the tab
         }
     }
 }

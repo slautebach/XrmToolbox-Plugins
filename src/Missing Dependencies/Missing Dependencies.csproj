@@ -183,6 +183,11 @@
     <None Include="list-missing-dep.ps1" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MissingDependenciesPluginControl.resx">
+      <DependentUpon>MissingDependenciesPluginControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
