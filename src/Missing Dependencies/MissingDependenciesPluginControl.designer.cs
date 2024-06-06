@@ -35,8 +35,10 @@
             this.tabMissingDependencies = new System.Windows.Forms.TabControl();
             this.tabPageXml = new System.Windows.Forms.TabPage();
             this.tabPageReport = new System.Windows.Forms.TabPage();
+            this.textBoxDependencyXml = new System.Windows.Forms.TextBox();
             this.toolStripMenu.SuspendLayout();
             this.tabMissingDependencies.SuspendLayout();
+            this.tabPageXml.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripMenu
@@ -85,6 +87,7 @@
             // 
             // tabPageXml
             // 
+            this.tabPageXml.Controls.Add(this.textBoxDependencyXml);
             this.tabPageXml.Location = new System.Drawing.Point(4, 22);
             this.tabPageXml.Name = "tabPageXml";
             this.tabPageXml.Padding = new System.Windows.Forms.Padding(3);
@@ -103,6 +106,15 @@
             this.tabPageReport.Text = "Dependency Report";
             this.tabPageReport.UseVisualStyleBackColor = true;
             // 
+            // textBoxDependencyXml
+            // 
+            this.textBoxDependencyXml.Location = new System.Drawing.Point(6, 6);
+            this.textBoxDependencyXml.Multiline = true;
+            this.textBoxDependencyXml.Name = "textBoxDependencyXml";
+            this.textBoxDependencyXml.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxDependencyXml.Size = new System.Drawing.Size(603, 293);
+            this.textBoxDependencyXml.TabIndex = 0;
+            // 
             // MissingDependenciesPluginControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -116,6 +128,8 @@
             this.toolStripMenu.ResumeLayout(false);
             this.toolStripMenu.PerformLayout();
             this.tabMissingDependencies.ResumeLayout(false);
+            this.tabPageXml.ResumeLayout(false);
+            this.tabPageXml.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,5 +143,6 @@
         private System.Windows.Forms.TabControl tabMissingDependencies;
         private System.Windows.Forms.TabPage tabPageXml;
         private System.Windows.Forms.TabPage tabPageReport;
+        private System.Windows.Forms.TextBox textBoxDependencyXml;
     }
 }
