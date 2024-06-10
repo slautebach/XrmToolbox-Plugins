@@ -92,6 +92,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Services" />
+    <Reference Include="System.Data.Services.Client" />
     <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
       <Private>True</Private>
@@ -168,6 +170,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityAndAccess.cs" />
+    <Compile Include="MigratableReason.cs" />
+    <Compile Include="MigrateEntitiesWithPermission.cs" />
     <Compile Include="MigrateUserSettingsPlugin.cs" />
     <Compile Include="MigrateUserSettingsPluginControl.cs">
       <SubType>UserControl</SubType>
@@ -175,12 +180,22 @@
     <Compile Include="MigrateUserSettingsPluginControl.designer.cs">
       <DependentUpon>MigrateUserSettingsPluginControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MigrationConfig.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RunOptions.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="UserDashboard.cs" />
+    <Compile Include="UserQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MigrateUserSettingsPluginControl.resx">
+      <DependentUpon>MigrateUserSettingsPluginControl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

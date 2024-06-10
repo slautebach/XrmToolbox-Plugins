@@ -103,5 +103,6 @@ namespace slautebach.MissingDependencies
                 LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
             }
         }
+
     }
 }

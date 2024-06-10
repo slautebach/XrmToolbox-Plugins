@@ -23,6 +23,8 @@ namespace slautebach.MigrateUserSettings
         ExportMetadata("SecondaryFontColor", "Gray")]
     public class MigrateUserSettingsPlugin : PluginBase
     {
+        LogManager logManager = new LogManager(typeof(MigrateUserSettingsPlugin));
+
         public override IXrmToolBoxPluginControl GetControl()
         {
             return new MigrateUserSettingsPluginControl();
@@ -36,6 +38,50 @@ namespace slautebach.MigrateUserSettings
             // If you have external assemblies that you need to load, uncomment the following to 
             // hook into the event that will fire when an Assembly fails to resolve
             // AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(AssemblyResolveEventHandler);
+      
+        }
+
+
+        private  void RunMigration()
+        {
+
+            try
+            {
+
+                MigrationConfig config = new MigrationConfig(logManager);
+
+
+                Console.WriteLine("***********************************");
+                Console.WriteLine("       Views");
+                Console.WriteLine("***********************************");
+                MigrateEntitiesWithPermission<UserQuery> migrateUserQueries = new MigrateEntitiesWithPermission<UserQuery>("userquery", config, logManager);
+                //migrateUserQueries.PreDeleteFromTarget = true; // uncomment to cleanup target environment
+                migrateUserQueries.MigrateEntities();
+
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("***********************************");
+                Console.WriteLine("       Finding Dependent Target Views");
+                Console.WriteLine("***********************************");
+                // Load the target user views before we start the dashboard migration
+                config.GetTargetAllTargetViews(true);
+
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("***********************************");
+                Console.WriteLine("       Dashboards");
+                Console.WriteLine("***********************************");
+
+                MigrateEntitiesWithPermission<UserDashboard> migrateUserDashboards = new MigrateEntitiesWithPermission<UserDashboard>("userform", config, logManager);
+                //migrateUserDashboards.PreDeleteFromTarget = true; // uncomment to cleanup target environment
+                migrateUserDashboards.MigrateEntities();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error Migrationg with exception message: {ex.Message}");
+                return;
+            }
         }
 
         /// <summary>
