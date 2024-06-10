@@ -168,6 +168,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions.cs" />
     <Compile Include="MissingDependenciesPlugin.cs" />
     <Compile Include="MissingDependenciesPluginControl.cs">
       <SubType>UserControl</SubType>
@@ -175,6 +176,7 @@
     <Compile Include="MissingDependenciesPluginControl.designer.cs">
       <DependentUpon>MissingDependenciesPluginControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MissingDependency.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
